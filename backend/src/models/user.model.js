@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    // clerk user id for login and signup
     clerkId: {
       type: String,
       required: true,
