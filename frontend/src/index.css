@@ -1,14 +1,56 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Add this in your global CSS file */
+@keyframes slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.slider-track {
+    height: 2px; /* Makes the track thinner */
+	background-color: rgba(255, 255, 255, 0.2);
+
+    width: 120px;  /* Adjust thumb size if needed */
+  
+}
+
+
+
+
+.button-3d {
+	/* Change this to match your design */
+	 /* Slight border for depth */
+	color: #eeeaea; /* Text color */
+	 /* Padding for content inside the button */
+	font-size: 44px; /* Font size */
+	border-radius: 50px; /* Optional: for rounded corners */
+	box-shadow: 7px 7px 10px rgba(11, 1, 14, 0.3); /* Shadow for 3D effect */
+	transition: all 0.4s ease; /* Smooth transition for the hover effect */
+  }
+  
+  .button-3d:hover {
+	transform: translate(1px, 1px); /* Slightly shift the button to simulate pressing */
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.3); /* Adjust the shadow */
+  }
+  
+  .button-3d:active {
+	transform: translate(3px, 3px); /* Further shift to simulate deeper pressing */
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.2); /* Lighter shadow when active */
+  }
+  
+
+
 
 @layer base {
 	:root {
-		--background: 0 0% 100%;
-		--foreground: 240 10% 3.9%;
-		--card: 0 0% 100%;
-		--card-foreground: 240 10% 3.9%;
-		--popover: 0 0% 100%;
+		--background: 0, 100%, 50%;
+		--foreground: 0, 100%, 50%;
+		--card: 0, 100%, 50%;
+		--card-foreground: 0, 100%, 50%;
+		--popover: 0, 100%, 50%;
 		--popover-foreground: 240 10% 3.9%;
 		--primary: 142.1 76.2% 36.3%;
 		--primary-foreground: 355.7 100% 97.3%;
@@ -60,10 +102,47 @@
 }
 
 @layer base {
-	* {
-		@apply border-border;
+	/* * {
+		
 	}
 	body {
-		@apply bg-background text-foreground;
-	}
+	
+	} */
 }
+
+
+
+ 
+@font-face {
+	font-family: 'Doto';
+	src: url('/fonts/Doto-Regular.ttf');
+  }
+  @theme{
+	--font-doto: 'Doto', sans-serif;
+  }
+
+
+ 
+  @font-face {
+	font-family: 'Bitshow';
+	src: url('/fonts/Bitshow.ttf') format('truetype');
+  }
+  
+  
+  @font-face {
+	font-family: 'Shivana';
+	src: url('/fonts/Sivana.ttf') format('truetype');
+  }
+
+  @theme{
+	--font-shivana: 'Shivana', sans-serif;
+	--font-bitshow: 'Bitshow', sans-serif;
+  }
+  
+  @font-face {
+    font-family: 'Bytesized';
+    src: url('https://fonts.googleapis.com/css2?family=Bytesized&display=swap') format('woff2'); 
+    font-weight: normal;
+    font-style: normal;
+}
+

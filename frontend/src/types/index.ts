@@ -41,3 +41,25 @@ export interface User {
 	fullName: string;
 	imageUrl: string;
 }
+
+
+
+export interface SocketAuth {
+	userId: string;
+}
+
+export interface ServerToClientEvents {
+	users_online: (users: string[]) => void;
+	activities: (activities: [string, string][]) => void;
+	user_connected: (userId: string) => void;
+	user_disconnected: (userId: string) => void;
+	receive_message: (message: Message) => void;
+	message_sent: (message: Message) => void;
+	activity_updated: (data: { userId: string; activity: string }) => void;
+}
+
+export interface ClientToServerEvents {
+	send_message: (data: { receiverId: string; senderId: string; content: string }) => void;
+	update_activity: (data: { userId: string; activity: string }) => void;
+	user_connected: (userId: string) => void;
+}

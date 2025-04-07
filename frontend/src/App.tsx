@@ -1,24 +1,26 @@
+
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/home/HomePage";
-import AuthCallbackPage from "./pages/auth-callback/AuthCallbackPage";
+import AuthcallbackPage from "./pages/AuthCallbackPage";
+import HomePage from "./pages/HomePage";
+
 import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 import MainLayout from "./layout/MainLayout";
-import ChatPage from "./pages/chat/ChatPage";
-import AlbumPage from "./pages/album/AlbumPage";
-import AdminPage from "./pages/admin/AdminPage";
-
-import { Toaster } from "react-hot-toast";
-import NotFoundPage from "./pages/404/NotFoundPage";
+import ChatPage from "./pages/ChatPage";
+import AlbumPage from "./pages/AlbumPage";
+import AdminPage from "./pages/AdminPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
-	return (
-		<>
-			<Routes>
+
+
+  return (
+    <>
+      <Routes>
 				<Route
 					path='/sso-callback'
 					element={<AuthenticateWithRedirectCallback signUpForceRedirectUrl={"/auth-callback"} />}
 				/>
-				<Route path='/auth-callback' element={<AuthCallbackPage />} />
+				<Route path='/auth-callback' element={<AuthcallbackPage />} />
 				<Route path='/admin' element={<AdminPage />} />
 
 				<Route element={<MainLayout />}>
@@ -28,9 +30,8 @@ function App() {
 					<Route path='*' element={<NotFoundPage />} />
 				</Route>
 			</Routes>
-			<Toaster />
-		</>
-	);
+    </>
+  );
 }
 
 export default App;
