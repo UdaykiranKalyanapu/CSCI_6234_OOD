@@ -4,8 +4,8 @@ import { Message } from "../models/message.model.js";
 export const initializeSocket = (server) => {
 	const io = new Server(server, {
 		cors: {
-			origin: process.env.FRONTEND_URL, // pulled from .env
-			credentials: true,
+			origin: "*", // 👈 Accept any origin
+			credentials: true, // can still be true for dev
 		},
 	});
 

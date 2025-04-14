@@ -29,9 +29,22 @@ initializeSocket(httpServer);
 
 
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  
+  "https://csci-6234-ood.vercel.app/", // optional, for production
+];
+
 app.use(cors({
-origin: process.env.CLIENT_URL, //to allow cross-origin requests
-credentials: true, //to allow credentials
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
 
 })); //to allow cross-origin requests
 app.use(clerkMiddleware()) //for auth.userid response
