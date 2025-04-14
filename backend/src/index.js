@@ -30,20 +30,24 @@ initializeSocket(httpServer);
 
 
 const allowedOrigins = [
-	"https://udaymelodyhhub.vercel.app/", // ✅ Your Vercel production frontend
+	"https://udaymelodyhhub.vercel.app",
+	"http://localhost:5173", // optional, for local testing
+	"http://localhost:5174"
   ];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-
-})); //to allow cross-origin requests
+  
+  app.use(cors({
+	origin: function (origin, callback) {
+	  if (!origin || allowedOrigins.includes(origin)) {
+		callback(null, true);
+	  } else {
+		console.log("CORS blocked origin:", origin);
+		callback(new Error("Not allowed by CORS"));
+	  }
+	},
+	credentials: true,
+  }));
+  
+   //to allow cross-origin requests
 app.use(clerkMiddleware()) //for auth.userid response
 app.use(express.json()); //to parse json data
 app.use(fileUpload({
