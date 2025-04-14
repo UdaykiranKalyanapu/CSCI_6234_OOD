@@ -1,12 +1,12 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useChatStore } from "@/stores/ChatStore";
+import { ChatStore } from "@/stores/ChatStore";
 import { useUser } from "@clerk/clerk-react";
 import { Heart , Headphones , CircleUserRound  } from "lucide-react";
 import { useEffect } from "react";
 
 const FriendsActivity = () => {
-	const { users, fetchUsers, onlineUsers, userActivities } = useChatStore();
+	const { users, fetchUsers, onlineUsers, userActivities } = ChatStore();
 	const { user } = useUser();
 
 	useEffect(() => {

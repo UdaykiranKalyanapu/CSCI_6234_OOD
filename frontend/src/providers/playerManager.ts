@@ -1,5 +1,5 @@
 import { Song, SocketAuth } from "@/types";
-import { useChatStore } from "@/stores/ChatStore";
+import { ChatStore } from "@/stores/ChatStore";
 import { StateCreator } from "zustand";
 
 /**
@@ -21,7 +21,7 @@ export class PlayerManager {
 	 * Emits user activity via socket with the current status.
 	 */
 	private emitActivity(activity: string): void {
-		const socket = useChatStore.getState().socket;
+		const socket = ChatStore.getState().socket;
 		const auth = socket.auth as SocketAuth;
 
 		if (auth?.userId) {

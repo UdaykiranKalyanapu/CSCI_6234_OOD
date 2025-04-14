@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { axiosInstance } from "@/lib/axios";
 import { Loader } from "lucide-react";
 import { useAuthStore } from "@/stores/AuthStore";
-import { useChatStore } from "@/stores/ChatStore";
+import { ChatStore } from "@/stores/ChatStore";
 
 
 const updateApiToken = (token: string | null) => {
@@ -15,7 +15,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	const { getToken, userId } = useAuth();
 	const [loading, setLoading] = useState(true);
 	const { checkAdminStatus } = useAuthStore();
-	const { initSocket, disconnectSocket } = useChatStore();
+	const { initSocket, disconnectSocket } = ChatStore();
 
 	useEffect(() => {
 		const initAuth = async () => {

@@ -22,7 +22,7 @@ interface ChatStore {
 	socket: ReturnType<ChatManager["getSocket"]>;
 }
 
-export const useChatStore = create<ChatStore>((set, get) => {
+export const ChatStore = create<ChatStore>((set, get) => {
 	const manager = new ChatManager(set, get);
 
 	return {

@@ -1,10 +1,10 @@
 import UsersListSkeleton from "../layout/UsersListSkeleton";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useChatStore } from "@/stores/ChatStore";
+import { ChatStore } from "@/stores/ChatStore";
 
 const UsersList = () => {
-	const { users, selectedUser, isLoading, setSelectedUser, onlineUsers } = useChatStore();
+	const { users, selectedUser, isLoading, setSelectedUser, onlineUsers } = ChatStore();
 
 	return (
 		<div className='border-r border-zinc-800'>

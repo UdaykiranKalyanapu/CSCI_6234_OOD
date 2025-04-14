@@ -1,6 +1,6 @@
 import { SignedOut, UserButton } from "@clerk/clerk-react";
 
-import SignInOAuthButtons from "./SigninButton";
+import SigninAuth from "./SigninAuth";
 
 	import { useAuthStore } from "@/stores/AuthStore";
 const Topbar = () => {
@@ -20,7 +20,7 @@ const Topbar = () => {
 			<div className='flex items-center gap-4'>
 				
 				<SignedOut>
-					<SignInOAuthButtons />
+					<SigninAuth />
 				</SignedOut>
 
 				<UserButton />

@@ -1,5 +1,5 @@
 import Topbar from "@/components/Topbar";
-import { useChatStore } from "@/stores/ChatStore";
+import { ChatStore } from "@/stores/ChatStore";
 import { useUser } from "@clerk/clerk-react";
 import { useEffect } from "react";
 import UsersList from "../components/UsersList";
@@ -18,7 +18,7 @@ const formatTime = (date: string) => {
 
 const ChatPage = () => {
 	const { user } = useUser();
-	const { messages, selectedUser, fetchUsers, fetchMessages } = useChatStore();
+	const { messages, selectedUser, fetchUsers, fetchMessages } = ChatStore();
 
 	useEffect(() => {
 		if (user) fetchUsers();
