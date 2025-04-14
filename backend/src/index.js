@@ -32,7 +32,8 @@ initializeSocket(httpServer);
 const allowedOrigins = [
 	"http://localhost:5173",
 	"http://localhost:5174",
-	"https://csci-6234-ood.vercel.app", // ✅ Your Vercel production frontend
+	
+	"https://udaymelodyhhub.vercel.app/", // ✅ Your Vercel production frontend
   ];
 
 app.use(cors({

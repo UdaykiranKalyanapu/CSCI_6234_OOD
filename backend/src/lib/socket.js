@@ -4,7 +4,7 @@ import { Message } from "../models/message.model.js";
 export const initializeSocket = (server) => {
 	const io = new Server(server, {
 		cors: {
-			origin: "https://csci-6234-ood.vercel.app", // 👈 Accept any origin
+			origin: "https://udaymelodyhhub.vercel.app/", // 👈 Accept any origin
 			credentials: true, // can still be true for dev
 		},
 	});
