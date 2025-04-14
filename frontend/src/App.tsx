@@ -1,6 +1,7 @@
 
 import { Route, Routes } from "react-router-dom";
-import AuthcallbackPage from "./pages/AuthCallbackPage";
+import AuthCallbackPage from "./pages/AuthCallbackPage";
+
 import HomePage from "./pages/HomePage";
 
 import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
@@ -20,7 +21,7 @@ function App() {
 					path='/sso-callback'
 					element={<AuthenticateWithRedirectCallback signUpForceRedirectUrl={"/auth-callback"} />}
 				/>
-				<Route path='/auth-callback' element={<AuthcallbackPage />} />
+				<Route path='/auth-callback' element={<AuthCallbackPage />} />
 				<Route path='/admin' element={<AdminPage />} />
 
 				<Route element={<MainLayout />}>
