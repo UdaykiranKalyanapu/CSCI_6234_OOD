@@ -30,11 +30,10 @@ initializeSocket(httpServer);
 
 
 const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:5174",
-  
-  "https://csci-6234-ood.vercel.app/", // optional, for production
-];
+	"http://localhost:5173",
+	"http://localhost:5174",
+	"https://csci-6234-ood.vercel.app", // ✅ Your Vercel production frontend
+  ];
 
 app.use(cors({
   origin: function (origin, callback) {
