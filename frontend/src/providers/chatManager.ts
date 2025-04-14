@@ -9,10 +9,7 @@ import {
 } from "@/types";
 import { StateCreator } from "zustand";
 
-// Determine backend URL based on environment
-const baseURL =
-	import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
-
+const baseURL = import.meta.env.VITE_API_URL;
 /**
  * ChatManager handles all socket and async chat-related operations.
  */
