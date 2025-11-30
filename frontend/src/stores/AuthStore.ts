@@ -23,7 +23,7 @@ class AuthStore {
 	get error() {
 		return this._error;
 	}
-
+// new
 	// Async action to check if current user is an admin
 	checkAdminStatus = async () => {
 		this._isLoading = true;
