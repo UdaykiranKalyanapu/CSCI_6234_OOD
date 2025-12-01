@@ -9,7 +9,8 @@ import {
 } from "@/types";
 import { StateCreator } from "zustand";
 
-const baseURL = import.meta.env.VITE_API_URL;
+const rawBaseURL = import.meta.env.VITE_API_URL;
+const socketURL = rawBaseURL.replace(/\/api$/, ""); // remove trailing /api if any
 /**
  * ChatManager handles all socket and async chat-related operations.
  */
@@ -25,10 +26,12 @@ export class ChatManager {
 		this.set = set;
 		this.get = get;
 
-		this.socket = io(baseURL, {
-			autoConnect: false,
-			withCredentials: true,
-		});
+		
+this.socket = io(socketURL, {
+  autoConnect: false,
+  withCredentials: true,
+  transports: ["websocket"], // optional, helps debugging connection issues
+});
 	}
 
 	/**
