@@ -10,10 +10,8 @@ import {
 import { StateCreator } from "zustand";
 
 const rawBaseURL = import.meta.env.VITE_API_URL;
-const socketURL = rawBaseURL.replace(/\/api$/, ""); // remove trailing /api if any
-/**
- * ChatManager handles all socket and async chat-related operations.
- */
+const socketURL = rawBaseURL.replace(/\/api$/, ""); 
+
 export class ChatManager {
 	private socket: Socket<ServerToClientEvents, ClientToServerEvents>;
 	private set: Parameters<StateCreator<any>>[0];
@@ -30,7 +28,7 @@ export class ChatManager {
 this.socket = io(socketURL, {
   autoConnect: false,
   withCredentials: true,
-  transports: ["websocket"], // optional, helps debugging connection issues
+  transports: ["websocket"], // debugging connection issues
 });
 	}
 
