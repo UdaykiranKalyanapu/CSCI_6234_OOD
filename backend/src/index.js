@@ -31,6 +31,7 @@ initializeSocket(httpServer);
 
 const allowedOrigins = [
 	"https://udaymelodyhhub.vercel.app",
+	"https://csci-6234-ood-1.onrender.com/",
 	"http://localhost:5173", // optional, for local testing
 	"http://localhost:5174"
   ];
