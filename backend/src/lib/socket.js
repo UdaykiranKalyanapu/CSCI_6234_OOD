@@ -7,7 +7,9 @@ export const initializeSocket = (server) => {
   // Support multiple origins from env var or default localhost
   const allowedOrigins = process.env.FRONTEND_URL
     ? process.env.FRONTEND_URL.split(",")
-    : ["http://localhost:5174"];
+    : ["http://localhost:5174",
+      "https://musicmelodyhub.netlify.app/"
+    ];
 
   io = new Server(server, {
     cors: {
